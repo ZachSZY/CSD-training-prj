@@ -8,6 +8,9 @@ namespace MTAServiceStatus
 {
     public class CourtManager
     {
-
+        public void Publish(Court court)
+        {
+            court.IsPublished = true; 
+        }
     }
 }
