@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System.Collections.Generic;
+using System.Linq.Expressions;
 using MTAServiceStatus;
 using NUnit.Framework;
 
@@ -15,6 +16,22 @@ namespace Tests
             play.Reserve(court);
 
             Assert.AreEqual(true,court.IsReserved);
+        }
+
+        [Test]
+        public void Given_play_Then_find_near_location_Then_return_location_list()
+        {
+            Player player = new Player();
+            List<Court> courts = new List<Court>()
+            {
+                new Court(){Location = new Location()},
+                new Court(){Location = new Location()},
+                new Court(){Location = new Location()}
+            };
+
+            Court court =  player.FindNearCourt(courts);
+
+            Assert.IsNotNull(court);
         }
     }
 }

@@ -14,5 +14,20 @@ namespace MTAServiceStatus
         {
             court.IsReserved = true;
         }
+
+        public Court FindNearCourt(List<Court> courts)
+        {
+            Location = new Location();
+
+            return courts
+                .Select(q => new
+                {
+                    Court = q,
+                    Distance = q.Location.CalDistance(Location)
+                })
+                .OrderBy(q => q.Distance)
+                .Select(q => q.Court)
+                .FirstOrDefault();
+        }
     }
 }
