@@ -9,4 +9,5 @@ packages/
 node_modules/
 .project
 
+.idea
 
