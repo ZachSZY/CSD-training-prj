@@ -4,11 +4,15 @@
 
 #include "Player.h"
 
-Reservation *Player::Reserve(Duartion const& duartion , Court const& court) {
+Reservation *Player::Reserve(Duartion const& duartion , Court const& court, int repeat) {
     //if (court.isAvilable(duartion))
     {
         m_reserve = new Reservation();
         m_reserve->setDuartion(duartion);
+        if (!this->isVip() && repeat > 0)
+        {
+            return NULL;
+        }
        // m_reserve->setCourt(court);
 
     }
@@ -23,5 +27,9 @@ Player::~Player()
 
 Court Player::find_nearest_court() {
     return Court();
+}
+
+bool Player::isVip() {
+    return false;
 }
 
