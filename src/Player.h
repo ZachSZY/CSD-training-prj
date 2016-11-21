@@ -13,12 +13,19 @@
 class Player
 {
 public:
-    Reservation* Reserve(Duartion const& duartion, Court const& court );
+    //0 not repeat
+    //1 daily repeat
+    //2 weekly repeat
+    Reservation* Reserve(Duartion const& duartion, Court const& court, int repeatly = 0 );
     ~Player();
 
     Court find_nearest_court();
 
+    void setVip(bool is_vip);
+    bool isVip();
 private:
     Reservation* m_reserve;
+    bool m_isVip;
+
 };
 #endif //CSD_TRAINING_PRJ_CPLUSPLUS_2016NOV_PLAYER_H
