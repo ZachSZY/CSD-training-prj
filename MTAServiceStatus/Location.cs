@@ -9,7 +9,7 @@ namespace MTAServiceStatus
             Distance = distance;
         }
 
-        private int Distance { get; set; }
+        public int Distance { get;private set; }
 
         public int CalDistance(Location location)
         {

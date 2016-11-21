@@ -22,6 +22,8 @@ namespace Tests
         public void Given_play_Then_find_near_location_Then_return_location_list()
         {
             Player player = new Player();
+            player.Location = new Location(5);
+
             List<Court> courts = new List<Court>()
             {
                 new Court(){Location = new Location(1)},
@@ -31,7 +33,7 @@ namespace Tests
 
             Court court =  player.FindNearCourt(courts);
 
-            Assert.IsNotNull(court);
+            Assert.AreEqual(3,court.Location.Distance);
         }
     }
 }

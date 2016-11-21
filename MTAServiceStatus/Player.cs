@@ -17,8 +17,6 @@ namespace MTAServiceStatus
 
         public Court FindNearCourt(List<Court> courts)
         {
-            Location = new Location(1);
-
             return courts
                 .Select(q => new
                 {
