@@ -26,13 +26,20 @@ namespace MTAServiceStatus
         public Reservation Reserve(Court court, int startTime, int endTime)
         {
             court.IsReserved = true;
-
+            var players = new List<Player>();
+            players.Add(this);
             return new Reservation()
             {
                 Court = court,
                 StartTime = startTime,
                 EndTime = endTime,
+                Players = players
             };
+        }
+
+        public void ShareReservation(Player[] players, Reservation reserv)
+        {
+            reserv.Players.AddRange(players);
         }
     }
 }

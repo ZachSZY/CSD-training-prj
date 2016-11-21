@@ -1,10 +1,14 @@
-﻿namespace MTAServiceStatus
+﻿using System.Collections.Generic;
+
+namespace MTAServiceStatus
 {
     public class Reservation
     {
         public int ID { get; set; }
 
         public Court Court { get; set; }
+
+        public List<Player> Players { get; set; }
 
         public int StartTime { get; set; }
 

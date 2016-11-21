@@ -38,5 +38,20 @@ namespace Tests
 
             Assert.AreEqual(3,court.Location.Distance);
         }
+
+        [Test]
+        public void Given_player_When_Share_Reservation_Then_OtherPlayers_Informed()
+        {
+            var playerA = new Player();
+            var count = new Court();
+            var reserv = playerA.Reserve(count, 1, 3);
+            var playerB = new Player();
+            playerA.ShareReservation(new Player[] { playerB }, reserv);
+            Assert.AreEqual(2, reserv.Players.Count);
+            Assert.IsTrue(reserv.Players.Contains(playerA));
+            Assert.IsTrue(reserv.Players.Contains(playerB));
+        }
+
+
     }
 }
