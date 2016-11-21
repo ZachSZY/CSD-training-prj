@@ -24,9 +24,9 @@ namespace Tests
             Player player = new Player();
             List<Court> courts = new List<Court>()
             {
-                new Court(){Location = new Location()},
-                new Court(){Location = new Location()},
-                new Court(){Location = new Location()}
+                new Court(){Location = new Location(1)},
+                new Court(){Location = new Location(2)},
+                new Court(){Location = new Location(3)}
             };
 
             Court court =  player.FindNearCourt(courts);
