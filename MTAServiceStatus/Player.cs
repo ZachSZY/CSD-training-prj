@@ -31,6 +31,7 @@ namespace MTAServiceStatus
             return new Reservation()
             {
                 Court = court,
+                CycleEnum = CycleEnum.Singleday,
                 StartTime = startTime,
                 EndTime = endTime,
                 Players = players
