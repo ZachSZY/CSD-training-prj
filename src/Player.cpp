@@ -5,5 +5,12 @@
 #include "Player.h"
 
 Reservation *Player::Reserve() {
-    return nullptr;
+    m_reserve = new Reservation();
+    return m_reserve;
 }
+
+Player::~Player()
+{
+    delete m_reserve;
+}
+

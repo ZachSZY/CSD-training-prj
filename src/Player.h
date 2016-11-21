@@ -10,5 +10,8 @@ class Player
 {
 public:
     Reservation* Reserve();
+    ~Player();
+private:
+    Reservation* m_reserve;
 };
 #endif //CSD_TRAINING_PRJ_CPLUSPLUS_2016NOV_PLAYER_H
