@@ -29,7 +29,7 @@ namespace Tests
         [Test]
         public void Given_CourtManager_When_Pub_Courts_Show_Court_List()
         {
-            var courtList = _courtManager.PublishCourtList();
+            var courtList = _courtManager.ListCourt();
             Assert.IsTrue(courtList.Count > 0);
         }
     }
