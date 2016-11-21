@@ -7,6 +7,9 @@
 
 class Reservation
 {
-
+private:
+    std::string m_ReservationTime;
+public:
+    void setReservationTime(const std::string &basic_string);
 };
 #endif //CSD_TRAINING_PRJ_CPLUSPLUS_2016NOV_RESERVATION_H

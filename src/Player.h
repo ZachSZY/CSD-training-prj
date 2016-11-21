@@ -4,12 +4,14 @@
 
 #ifndef CSD_TRAINING_PRJ_CPLUSPLUS_2016NOV_PLAYER_H
 #define CSD_TRAINING_PRJ_CPLUSPLUS_2016NOV_PLAYER_H
+
+#include <string>
 #include "Reservation.h"
 
 class Player
 {
 public:
-    Reservation* Reserve();
+    Reservation* Reserve(const std::string& reservation_time);
     ~Player();
 private:
     Reservation* m_reserve;
