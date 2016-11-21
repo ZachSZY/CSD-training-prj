@@ -21,9 +21,11 @@ public:
 
     Court find_nearest_court();
 
+    void setVip(bool is_vip);
+    bool isVip();
 private:
     Reservation* m_reserve;
+    bool m_isVip;
 
-    bool isVip();
 };
 #endif //CSD_TRAINING_PRJ_CPLUSPLUS_2016NOV_PLAYER_H

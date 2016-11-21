@@ -30,6 +30,10 @@ Court Player::find_nearest_court() {
 }
 
 bool Player::isVip() {
-    return false;
+    return this->m_isVip;
+}
+
+void Player::setVip(bool is_vip) {
+    this->m_isVip = is_vip;
 }
 
