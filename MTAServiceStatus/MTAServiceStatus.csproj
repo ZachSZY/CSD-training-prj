@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configs\AutoMapperConfig.cs" />
+    <Compile Include="Court.cs" />
     <Compile Include="Extensions\XmlSerializerExtensions.cs" />
     <Compile Include="Models\Api\Line.cs" />
     <Compile Include="Models\Api\RawLine.cs" />
