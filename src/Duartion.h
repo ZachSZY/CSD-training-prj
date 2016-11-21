@@ -10,6 +10,8 @@ class Duartion {
 public:
     Duartion();
     Duartion(std::string const& start, std::string const& end);
+    inline std::string Start()const{return m_start;}
+    inline std::string End()const{return m_end;}
 private:
     std::string m_start;
     std::string m_end;

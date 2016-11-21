@@ -11,9 +11,9 @@ TEST_GROUP(ScheduleTest)
 
 };
 
-TEST(ScheduleTest, Given_A_Full_Schedule_When_reserve_Then_Schedule_Changed)
+TEST(ScheduleTest, Given_A_Empty_Schedule_When_reserveAllDay_Then_Schedule_Full)
 {
     Schedule tmpSchedule;
-    tmpSchedule.reserve(Duartion("0", "1"));
-    CHECK_FALSE(tmpSchedule.full());
+    tmpSchedule.reserve(Duartion("0", "24"));
+    CHECK_TRUE(tmpSchedule.full());
 }
