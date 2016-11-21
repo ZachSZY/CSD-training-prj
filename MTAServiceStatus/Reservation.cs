@@ -11,5 +11,10 @@
         public int EndTime { get; set; }
 
         public CycleEnum CycleEnum { get; set; }
+
+        public decimal CalFee()
+        {
+            return Court.FeePerHour * (EndTime- StartTime);
+        }
     }
 }
