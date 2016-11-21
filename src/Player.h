@@ -8,12 +8,16 @@
 #include <string>
 #include "Reservation.h"
 #include "Duartion.h"
+#include "Court.h"
 
 class Player
 {
 public:
-    Reservation* Reserve(Duartion const& duartion );
+    Reservation* Reserve(Duartion const& duartion, Court const& court );
     ~Player();
+
+    Court find_nearest_court();
+
 private:
     Reservation* m_reserve;
 };

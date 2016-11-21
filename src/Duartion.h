@@ -4,7 +4,7 @@
 
 #ifndef CSD_TRAINING_PRJ_CPLUSPLUS_2016NOV_DUARTION_H
 #define CSD_TRAINING_PRJ_CPLUSPLUS_2016NOV_DUARTION_H
-
+#include <string>
 
 class Duartion {
 public:
