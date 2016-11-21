@@ -55,4 +55,18 @@ TEST(tennis, GEVIN_a_normal_player_WHEN_repeat_reserve_daily_THEN_failure)
 }
 
 
+TEST(tennis, GEVIN_a_VIP_player_WHEN_repeat_reserve_daily_THEN_get_a_reservation)
+{
+    //given
+    player->setVip(true);
+    std::string start_time = "2016-11-21 14:00;00";
+    std::string end_time =  "2016-11-21 16:00;00";
+    Duartion duartion(start_time, end_time);
+    Court court;
+    //when
+    const int DAILY = 1;
+    Reservation * newReservation = player->Reserve(duartion, court, DAILY);
+    //then
+    CHECK_TRUE(NULL != newReservation);
+}
 
