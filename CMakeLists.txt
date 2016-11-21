@@ -22,12 +22,22 @@ set(SOURCE_FILES
     src/Reservation.h
     src/Player.cpp
     src/Player.h
+    src/Court.cpp
+    src/Court.h
+    src/Duartion.cpp
+    src/Duartion.h
+    src/Schedule.cpp
+    src/Schedule.h
+    src/Postion.cpp
+    src/Postion.h
+    src/Reservation.h
+    src/Reservation.cpp
     tst/AllTests.cpp
     tst/AllTests.h
     tst/CircularBufferTest.cpp
     tst/MockDocumentationTest.cpp
     tst/MockPrinter.h
     tst/OneTest.cpp
-    tst/PrinterTest.cpp)
+    tst/PrinterTest.cpp tst/ScheduleTest.cpp)
 
 add_executable(CSD_training_prj ${SOURCE_FILES})
