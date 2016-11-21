@@ -21,9 +21,12 @@ public class ReservationRepo {
         return true;
     }
     public boolean isReservationExist(Reservation reservation) {
-        if (reservations.isEmpty())
-            return false;
-        return true;
+        for (Reservation r :
+                reservations) {
+            if (r.equals(reservation))
+                return true;
+        }
+        return false;
     }
 
 }

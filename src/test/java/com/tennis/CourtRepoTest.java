@@ -16,7 +16,6 @@ public class CourtRepoTest {
         Date start = new Date();
         Date end = new Date();
         com.tennis.Period duration = com.tennis.Period.between(start, end);
-        court.release(duration);
 
         CourtRepo repo = new CourtRepo();
         boolean isReserved = repo.isReserved(court, duration);
@@ -24,19 +23,19 @@ public class CourtRepoTest {
         assertFalse(isReserved);
     }
 
-    @Test
-    public void GIVEN_an_reserved_court_and_period_WHEN_check_whether_reserved_THEN_return_reserved(){
-        Court court = new Court();
-        Date start = new Date();
-        Date end = new Date();
-        com.tennis.Period duration = com.tennis.Period.between(start, end);
-        court.reserve(duration);
-
-        CourtRepo repo = new CourtRepo();
-        boolean isReserved = repo.isReserved(court, duration);
-
-        assertTrue(isReserved);
-
-
-    }
+//    @Test
+//    public void GIVEN_an_reserved_court_and_period_WHEN_check_whether_reserved_THEN_return_reserved(){
+//        Court court = new Court();
+//        Date start = new Date();
+//        Date end = new Date();
+//        com.tennis.Period duration = com.tennis.Period.between(start, end);
+//        (new Player()).reserve(court, duration);
+//
+//        CourtRepo repo = new CourtRepo();
+//        boolean isReserved = repo.isReserved(court, duration);
+//
+//        assertTrue(isReserved);
+//
+//
+//    }
 }

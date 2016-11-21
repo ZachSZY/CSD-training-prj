@@ -19,6 +19,6 @@ public class Player {
     }
 
     public Boolean reserve(Court court, Period time) {
-        return true;
+        return service.reserve(court, time);
     }
 }

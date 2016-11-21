@@ -42,13 +42,10 @@ public class PlayerTest {
         Date start = new Date();
         Date end = new Date();
         Period duration = Period.between(start, end);
-        court.release(duration);
-        assertFalse(court.isReserved(duration));
 
         Boolean isSuccessful = player.reserve(court, duration);
 
         assertTrue(isSuccessful);
-        assertTrue(court.isReserved(duration));
     }
 
 
