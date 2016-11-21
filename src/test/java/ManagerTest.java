@@ -12,7 +12,7 @@ public class ManagerTest {
     public void GIVEN_a_court_manager_WHEN_publish_a_court_THEN_succeed() throws Exception {
         Manager manager = new Manager();
 
-        boolean result = manager.publish(new Court());
+        boolean result = manager.publish(new Court(0, 1));
         assertTrue(result);
     }
 }
