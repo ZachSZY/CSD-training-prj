@@ -7,11 +7,12 @@
 
 #include <string>
 #include "Reservation.h"
+#include "Duartion.h"
 
 class Player
 {
 public:
-    Reservation* Reserve(const std::string& start_time,const std::string& end_time );
+    Reservation* Reserve(Duartion const& duartion );
     ~Player();
 private:
     Reservation* m_reserve;

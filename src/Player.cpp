@@ -4,10 +4,10 @@
 
 #include "Player.h"
 
-Reservation *Player::Reserve(const std::string& start_time,const std::string& end_time ) {
+Reservation *Player::Reserve(Duartion const& duartion ) {
     m_reserve = new Reservation();
-    m_reserve->setBegin(start_time);
-    m_reserve->setEnd(end_time);
+    m_reserve->setDuartion(duartion);
+
     return m_reserve;
 }
 
