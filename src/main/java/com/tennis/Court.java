@@ -1,12 +1,25 @@
 package com.tennis;
 
+
+import java.time.Duration;
+
 /**
  * Created by jiah on 2016/11/21.
  */
 public class Court {
-    private Location location = new Location(0, 1);
+    private int x;
+    private int y;
 
-    public Location getLocation() {
-        return location;
+    public Court(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX(){
+        return x;
+    }
+
+    public int getY(){
+        return y;
     }
 }

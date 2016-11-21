@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 public class CourtRepoTest {
     @Test
     public void Given_an_unreserved_court_and_period_When_check_whether_reserved_Then_return_unreserved() throws Exception {
-        Court court = new Court();
+        Court court = new Court(0,0);
         Date start = new Date();
         Date end = new Date();
         com.tennis.Period duration = com.tennis.Period.between(start, end);

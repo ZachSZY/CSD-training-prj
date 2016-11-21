@@ -1,80 +1,52 @@
 package Search;
 
-import com.tennis.*;
-import org.junit.Before;
+import com.tennis.Court;
+import com.tennis.Player;
+import com.tennis.Period;
+import org.junit.Ignore;
 import org.junit.Test;
 
+import java.time.LocalTime;
 import java.util.Date;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
 
+/**
+ * Created by jiah on 2016/11/21.
+ */
 public class PlayerTest {
-    private Player player;
-    private Court court;
-    private CourtService courtService;
-    private Period period;
-    private Player anotherPlayer;
-
-    @Before
-    public void setUp() throws Exception {
-        player = new Player();
-        anotherPlayer = new Player();
-        period = createPeriod();
-        court = mock(Court.class);
-        courtService = new CourtService();
-    }
-
     @Test
-    public void GIVEN_a_player_location_WHEN_search_THEN_return_nearest_court() {
+    public void GIVEN_a_player_location_WHEN_search_THEN_return_nearest_court_() {
         //GIVEN
-        Location playerLocation = new Location(0, 0);
-
+        Player playerA = new Player();
+        playerA.setLocation(0,0);
         //WHEN
-        Court court = player.search(playerLocation);
+        Court court = playerA.search();
 
-        assertEquals(new Location(0, 1), court.getLocation());
+        assertNotNull(court);
     }
 
-    @Test
-    public void Given_a_player_WHEN_reserve_an_unreserved_court_THEN_successfully_reserved() {
-        boolean successful = player.reserve(court, period);
-
-        assertTrue(successful);
-        assertTrue(courtService.isReserved(court, period));
-    }
+    @Ignore
+    public void Given_a_player_at_hongqiao_When_search_Then_return_hongqiao_court() {
+        Player player = new Player();
 
 
-    @Test
-    public void Given_a_player_WHEN_reserve_an_reserved_court_THEN_failed_reserved() {
-        anotherPlayer.reserve(court, period);
 
-        boolean successful = player.reserve(court, period);
-
-        assertFalse(successful);
-        assertTrue(courtService.isReserved(court, period));
     }
 
     @Test
     public void Given_a_player_without_a_reserved_court_When_share_to_another_player_Then_fail() throws Exception {
+        Player player = new Player();
+        Court court = new Court(0,0);
 
-        boolean result = player.share(court, period, anotherPlayer);
-
-        assertFalse(result);
-    }
-
-    @Test
-    public void Given_a_player_with_a_reserved_court_When_share_to_another_player_Then_sucessful() throws Exception {
-        player.reserve(court, period);
-
-        boolean result = player.share(court, period, anotherPlayer);
-
-        assertTrue(result);
-    }
-
-    private Period createPeriod() {
         Date start = new Date();
         Date end = new Date();
-        return Period.between(start, end);
+        Period duration = Period.between(start, end);
+
+        Boolean isSuccessful = player.reserve(court, duration);
+
+        assertTrue(isSuccessful);
     }
+
+
 }

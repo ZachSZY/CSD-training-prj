@@ -13,7 +13,7 @@ public class CourtService {
 
     public CourtService(){
         courts = new ArrayList<Court>() {{
-            add(new Court());
+            add(new Court(0,0));
         }};
         reservationRepo = new ReservationRepo();
     }

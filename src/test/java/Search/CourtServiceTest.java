@@ -31,7 +31,7 @@ public class CourtServiceTest {
 
     @Test
     public void GIVEN_a_court_AND_no_reservation_on_it_WHEN_check_whether_it_is_reserved_THEN_return_false() {
-        Court court = new Court();
+        Court court = new Court(0,0);
         Period period = Period.between(new Date(), new Date());
         boolean isReserved = service.isReserved(court, period);
 
@@ -41,7 +41,7 @@ public class CourtServiceTest {
 
     @Test
     public void GIVEN_a_reserved_court_WHEN_check_whether_it_is_reserved_THEN_return_false() {
-        Court court = new Court();
+        Court court = new Court(0,0);
         Period period = Period.between(new Date(), new Date());
         (new Player()).reserve(court, period);
 
