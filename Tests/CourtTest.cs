@@ -27,5 +27,13 @@ namespace Tests
             _court.Publish();
             Assert.AreEqual(true, _court.IsPublished);
         }
+
+        [Test]
+        public void Given_a_Court_When_Reserve_THen_resverd_status_is_true()
+        {
+            _court.Reserve();
+
+            Assert.AreEqual(true,_court.IsReserved);
+        }
     }
 }
