@@ -11,8 +11,7 @@ namespace Tests
         CourtManager _courtManager;
         Court _court;
 
-        [SetUp
-            ]
+        [SetUp]
         public void CreateCourtManager()
         {
             _courtManager = new CourtManager();
