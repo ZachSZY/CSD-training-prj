@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configs\AutoMapperConfig.cs" />
+    <Compile Include="CorePlayer.cs" />
     <Compile Include="Court.cs" />
     <Compile Include="CourtManager.cs" />
     <Compile Include="Extensions\XmlSerializerExtensions.cs" />
