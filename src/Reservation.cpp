@@ -6,6 +6,10 @@
 #include <string>
 #include "Reservation.h"
 
-void Reservation::setReservationTime(const std::string &basic_string) {
-    m_ReservationTime = basic_string;
+void Reservation::setBegin(const std::string &basic_string) {
+    m_start = basic_string;
+}
+
+void Reservation::setEnd(const std::string &basic_string) {
+    m_end = basic_string;
 }

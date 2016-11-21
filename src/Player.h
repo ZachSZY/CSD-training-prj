@@ -11,7 +11,7 @@
 class Player
 {
 public:
-    Reservation* Reserve(const std::string& reservation_time);
+    Reservation* Reserve(const std::string& start_time,const std::string& end_time );
     ~Player();
 private:
     Reservation* m_reserve;
