@@ -12,5 +12,12 @@ namespace MTAServiceStatus
         {
             court.IsPublished = true; 
         }
+
+        public List<Court> PublishCourtList()
+        {
+            var list = new List<Court>();
+            list.Add(new Court { IsPublished = true });
+            return list;
+        }
     }
 }

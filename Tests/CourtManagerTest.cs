@@ -1,5 +1,7 @@
 ﻿using NUnit.Framework;
 using MTAServiceStatus;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Tests
 {
@@ -22,6 +24,13 @@ namespace Tests
         {
             _courtManager.Publish(_court);
             Assert.AreEqual(true, _court.IsPublished);
+        }
+
+        [Test]
+        public void Given_CourtManager_When_Pub_Courts_Show_Court_List()
+        {
+            var courtList = _courtManager.PublishCourtList();
+            Assert.IsTrue(courtList.Count > 0);
         }
     }
 }
