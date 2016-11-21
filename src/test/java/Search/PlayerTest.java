@@ -1,9 +1,6 @@
 package Search;
 
-import com.tennis.Court;
-import com.tennis.Location;
-import com.tennis.Period;
-import com.tennis.Player;
+import com.tennis.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,18 +8,21 @@ import java.util.Date;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class PlayerTest {
     private Player player;
     private Court court;
+    private CourtService courtService;
     private Period period;
+    private Player anotherPlayer;
 
     @Before
     public void setUp() throws Exception {
         player = new Player();
+        anotherPlayer = new Player();
         period = createPeriod();
         court = mock(Court.class);
+        courtService = new CourtService();
     }
 
     @Test
@@ -38,23 +38,21 @@ public class PlayerTest {
 
     @Test
     public void Given_a_player_WHEN_reserve_an_unreserved_court_THEN_successfully_reserved() {
-        when(court.isReserved(period)).thenReturn(false);
-
         boolean successful = player.reserve(court, period);
 
         assertTrue(successful);
-        assertTrue(court.isReserved(period));
+        assertTrue(courtService.isReserved(court, period));
     }
 
 
     @Test
     public void Given_a_player_WHEN_reserve_an_reserved_court_THEN_failed_reserved() {
-        when(court.isReserved(period)).thenReturn(true);
+        anotherPlayer.reserve(court, period);
 
         boolean successful = player.reserve(court, period);
 
         assertFalse(successful);
-        assertTrue(court.isReserved(period));
+        assertTrue(courtService.isReserved(court, period));
     }
 
     private Period createPeriod() {

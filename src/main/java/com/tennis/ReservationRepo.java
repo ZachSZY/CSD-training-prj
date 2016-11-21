@@ -7,7 +7,7 @@ import java.util.List;
  * Created by shuayang on 16/11/21.
  */
 public class ReservationRepo {
-    List<Reservation> reservations;
+    private static List<Reservation> reservations;
     public ReservationRepo() {
         reservations = new ArrayList<>();
     }
@@ -21,9 +21,12 @@ public class ReservationRepo {
         return true;
     }
     public boolean isReservationExist(Reservation reservation) {
-        if (reservations.isEmpty())
-            return false;
-        return true;
+        for (Reservation r :
+                reservations) {
+            if (r.equals(reservation))
+                return true;
+        }
+        return false;
     }
 
 }
