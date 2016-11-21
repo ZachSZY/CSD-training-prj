@@ -48,8 +48,7 @@
   <ItemGroup>
     <Compile Include="CourtManagerTest.cs" />
     <Compile Include="CourtTest.cs" />
-    <Compile Include="MTARepositoryTests.cs" />
-    <Compile Include="MTASubwayStatusTests.cs" />
+    <Compile Include="LocationTest.cs" />
     <Compile Include="PlayerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

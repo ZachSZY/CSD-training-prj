@@ -50,6 +50,7 @@
     <Compile Include="Court.cs" />
     <Compile Include="CourtManager.cs" />
     <Compile Include="Extensions\XmlSerializerExtensions.cs" />
+    <Compile Include="Location.cs" />
     <Compile Include="Models\Api\Line.cs" />
     <Compile Include="Models\Api\RawLine.cs" />
     <Compile Include="Models\Api\RawService.cs" />

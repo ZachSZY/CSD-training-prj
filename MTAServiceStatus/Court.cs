@@ -10,6 +10,8 @@ namespace MTAServiceStatus
 
         public bool IsReserved { get; set; }
 
+        public Location Location { get; private set; }
+
         public void Publish()
         {
             IsPublished = true;

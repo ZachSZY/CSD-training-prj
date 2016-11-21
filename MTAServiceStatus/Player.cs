@@ -8,6 +8,8 @@ namespace MTAServiceStatus
 {
     public class Player
     {
+        public Location Location { get; set; }
+
         public void Reserve(Court court)
         {
             court.IsReserved = true;
