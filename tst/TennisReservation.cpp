@@ -3,6 +3,8 @@
 //
 #include "CppUTest/TestHarness.h"
 #include "Player.h"
+#include "Duartion.h"
+
 static Player* player;
 TEST_GROUP(tennis)
 {
@@ -21,7 +23,8 @@ TEST(tennis, GEVIN_tennis_player_WHEN_reserve_THEN_get_one_reservation)
 {
     std::string start_time = "2016-11-21 14:00;00";
     std::string end_time =  "2016-11-21 16:00;00";
-    Reservation * newReservation = player->Reserve(start_time, end_time);
+    Duartion duartion(start_time, end_time);
+    Reservation * newReservation = player->Reserve(duartion);
     CHECK_TRUE(NULL != newReservation);
 }
 
