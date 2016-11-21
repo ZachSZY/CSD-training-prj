@@ -21,4 +21,10 @@ public class Player {
     public Boolean reserve(Court court, Period time) {
         return service.reserve(court, time);
     }
+
+    public boolean share(Court court, Period period, Player anotherPlayer) {
+        if (service.isReserved(court, period))
+            return true;
+        return false;
+    }
 }

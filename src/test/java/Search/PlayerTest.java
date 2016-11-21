@@ -55,6 +55,23 @@ public class PlayerTest {
         assertTrue(courtService.isReserved(court, period));
     }
 
+    @Test
+    public void Given_a_player_without_a_reserved_court_When_share_to_another_player_Then_fail() throws Exception {
+
+        boolean result = player.share(court, period, anotherPlayer);
+
+        assertFalse(result);
+    }
+
+    @Test
+    public void Given_a_player_with_a_reserved_court_When_share_to_another_player_Then_sucessful() throws Exception {
+        player.reserve(court, period);
+
+        boolean result = player.share(court, period, anotherPlayer);
+
+        assertTrue(result);
+    }
+
     private Period createPeriod() {
         Date start = new Date();
         Date end = new Date();
