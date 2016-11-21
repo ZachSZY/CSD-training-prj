@@ -17,9 +17,11 @@ TEST_GROUP(tennis)
     }
 };
 
-TEST(tennis, GEVIN_tennis_player_WHEN_reserva_THEN_get_one_reservation)
+TEST(tennis, GEVIN_tennis_player_WHEN_reserve_THEN_get_one_reservation)
 {
-      Reservation * newReservation = player->Reserve();
+    std::string reservation_time = "2016-11-21 14:00;00p";
+    Reservation * newReservation = player->Reserve(reservation_time);
     CHECK_TRUE(NULL != newReservation);
 }
+
 
