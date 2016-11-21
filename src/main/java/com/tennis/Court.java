@@ -7,6 +7,7 @@ import java.time.Duration;
  */
 public class Court {
     private ReservationRepo reservationRepo = new ReservationRepo();
+    private Location location = new Location(0, 1);
 
     public void release(Period time) {
         CourtRepo repo = new CourtRepo();
@@ -20,5 +21,9 @@ public class Court {
     public void reserve(Period duration) {
         CourtRepo repo = new CourtRepo();
         repo.reserve(this, duration);
+    }
+
+    public Location getLocation() {
+        return location;
     }
 }

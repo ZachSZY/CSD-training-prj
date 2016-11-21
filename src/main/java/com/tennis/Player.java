@@ -10,7 +10,7 @@ import java.util.Date;
 public class Player {
     CourtService service = new CourtService();
 
-    public Court search() {
+    public Court search(Location playerLocation) {
         List<Court> courts = service.getAllCourts();
         if(courts.isEmpty())
             return null;

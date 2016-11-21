@@ -1,55 +1,65 @@
 package Search;
 
 import com.tennis.Court;
-import com.tennis.Player;
+import com.tennis.Location;
 import com.tennis.Period;
-import org.junit.Ignore;
+import com.tennis.Player;
+import org.junit.Before;
 import org.junit.Test;
 
-import java.time.LocalTime;
 import java.util.Date;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
-/**
- * Created by jiah on 2016/11/21.
- */
 public class PlayerTest {
+    private Player player;
+    private Court court;
+    private Period period;
+
+    @Before
+    public void setUp() throws Exception {
+        player = new Player();
+        period = createPeriod();
+        court = mock(Court.class);
+    }
+
     @Test
-    public void GIVEN_a_player_location_WHEN_search_THEN_return_nearest_court_() {
+    public void GIVEN_a_player_location_WHEN_search_THEN_return_nearest_court() {
         //GIVEN
-        Player playerA = new Player();
+        Location playerLocation = new Location(0, 0);
 
         //WHEN
-        Court court = playerA.search();
+        Court court = player.search(playerLocation);
 
-        assertNotNull(court);
+        assertEquals(new Location(0, 1), court.getLocation());
     }
 
-    @Ignore
-    public void Given_a_player_at_hongqiao_When_search_Then_return_hongqiao_court() {
-        Player player = new Player();
+    @Test
+    public void Given_a_player_WHEN_reserve_an_unreserved_court_THEN_successfully_reserved() {
+        when(court.isReserved(period)).thenReturn(false);
 
+        boolean successful = player.reserve(court, period);
 
-
+        assertTrue(successful);
+        assertTrue(court.isReserved(period));
     }
 
-    @Ignore
-    public void Given_a_player_WHEN_make_a_free_reservation_THEN_succefully_reserved() {
-        Player player = new Player();
-        Court court = new Court();
 
+    @Test
+    public void Given_a_player_WHEN_reserve_an_reserved_court_THEN_failed_reserved() {
+        when(court.isReserved(period)).thenReturn(true);
+
+        boolean successful = player.reserve(court, period);
+
+        assertFalse(successful);
+        assertTrue(court.isReserved(period));
+    }
+
+    private Period createPeriod() {
         Date start = new Date();
         Date end = new Date();
-        Period duration = Period.between(start, end);
-        court.release(duration);
-        assertFalse(court.isReserved(duration));
-
-        Boolean isSuccessful = player.reserve(court, duration);
-
-        assertTrue(isSuccessful);
-        assertTrue(court.isReserved(duration));
+        return Period.between(start, end);
     }
-
-
 }
