@@ -2,11 +2,14 @@ package Search;
 
 import com.tennis.Court;
 import com.tennis.Player;
+import com.tennis.Period;
+import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import java.time.LocalTime;
+import java.util.Date;
+
+import static org.junit.Assert.*;
 
 /**
  * Created by jiah on 2016/11/21.
@@ -23,20 +26,28 @@ public class PlayerTest {
         assertNotNull(court);
     }
 
-//    @Testt
-//    public void Given_a_player_at_hongqiao_When_search_Then_return_hongqiao_court() {
-//        Player player = new Player();
-//
-//
-//    }
-
-    @Test
-    public void Given_a_player_WHEN_make_a_reservation_THEN_succefully_reserved() {
+    @Ignore
+    public void Given_a_player_at_hongqiao_When_search_Then_return_hongqiao_court() {
         Player player = new Player();
 
+
+
+    }
+
+    @Ignore
+    public void Given_a_player_WHEN_make_a_free_reservation_THEN_succefully_reserved() {
+        Player player = new Player();
         Court court = new Court();
-        Boolean isSuccessful = player.reserve(court);
+
+        Date start = new Date();
+        Date end = new Date();
+        Period duration = Period.between(start, end);
+        court.release(duration);
+        assertFalse(court.isReserved(duration));
+
+        Boolean isSuccessful = player.reserve(court, duration);
 
         assertTrue(isSuccessful);
+        assertTrue(court.isReserved(duration));
     }
 }
