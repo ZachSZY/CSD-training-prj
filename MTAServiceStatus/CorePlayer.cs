@@ -4,15 +4,10 @@
     {
         public Reservation Reserve(Court court, int startTime, int endTime,CycleEnum cycleEnum)
         {
-            court.IsReserved = true;
+            var reservation = base.Reserve(court, startTime, endTime);
+            reservation.CycleEnum = cycleEnum;
 
-            return new Reservation()
-            {
-                Court = court,
-                StartTime = startTime,
-                EndTime = endTime,
-                CycleEnum = cycleEnum
-            };
+            return reservation;
         }
     }
 
