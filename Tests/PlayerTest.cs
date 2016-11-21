@@ -13,9 +13,12 @@ namespace Tests
         {
             Player play = new Player();
             var court = new Court();
-            play.Reserve(court);
+            int startTime = 1;
+            int endTime = 2;
 
-            Assert.AreEqual(true,court.IsReserved);
+            Reservation reservation = play.Reserve(court,startTime,endTime);
+
+            Assert.AreEqual(true,reservation.Court.IsReserved);
         }
 
         [Test]

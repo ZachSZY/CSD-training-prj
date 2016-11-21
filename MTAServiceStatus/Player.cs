@@ -10,11 +10,6 @@ namespace MTAServiceStatus
     {
         public Location Location { get; set; }
 
-        public void Reserve(Court court)
-        {
-            court.IsReserved = true;
-        }
-
         public Court FindNearCourt(List<Court> courts)
         {
             return courts
@@ -26,6 +21,18 @@ namespace MTAServiceStatus
                 .OrderBy(q => q.Distance)
                 .Select(q => q.Court)
                 .FirstOrDefault();
+        }
+
+        public Reservation Reserve(Court court, int startTime, int endTime)
+        {
+            court.IsReserved = true;
+
+            return new Reservation()
+            {
+                Court = court,
+                StartTime = startTime,
+                EndTime = endTime,
+            };
         }
     }
 }
